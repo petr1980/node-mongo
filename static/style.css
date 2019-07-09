@@ -1,0 +1,22 @@
+.nav-wrapper {
+    padding: 0 15px;
+}
+
+.card-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-link a {
+    margin: 0  !important;
+}
+
+.wishlist-table thead  {
+   text-transform: uppercase;
+}
+.thumbnail {
+    width: 100px;
+}
+.remove-form {
+    margin-top: 2rem;
+}

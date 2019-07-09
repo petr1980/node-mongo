@@ -1,0 +1,11 @@
+extends template
+block head
+  +head(title)
+
+block header
+  include parts/navbar 
+
+block content
+  h1= info.title
+  img(src= info.img alt= info.title)
+  p= info.desc 

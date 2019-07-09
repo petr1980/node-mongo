@@ -1,0 +1,28 @@
+extends template
+block head
+	+head(title)
+
+block header
+	include parts/navbar 
+
+block content
+	h1 Habits list
+	each item in habits
+		.row
+			.col.s6.offset-s3
+				.card
+					.card-image
+						img(src= item.img)
+						span.card-title= item.title
+
+					.card-content
+						p= item.title
+
+					.card-action
+						.card-link
+							a(href=`habits/${item.id}`) See habit
+							a(href=`habits/${item.id}/edit?allow=true`) Edit habit
+							form(action="/wishlist/add" method="post")
+								input(type="hidden" name="id", value= item.id)
+								button.btn.btn-primary add to card
+

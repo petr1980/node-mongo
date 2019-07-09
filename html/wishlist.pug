@@ -1,0 +1,29 @@
+extends template
+block head
+  +head(title)
+
+block header
+  include parts/navbar 
+
+block content
+  h1 My wishlist
+
+  #card
+    if data && data.length
+      table.wishlist-table 
+        thead
+          tr
+            td title
+            td thumbnail
+            td counting
+            td event
+        tbody
+          each item in data
+            tr
+              td= item.title
+              td: img.thumbnail(src= item.img)
+              td= item.count
+              td: button.brn.btn-small.btnRemove(data-id= item.id) delete
+
+    else 
+      p Wishlist is empty

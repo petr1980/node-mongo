@@ -1,0 +1,9 @@
+nav.brown.darken-2
+  div.nav-wrapper
+    a(href="#").brand-logo My habits
+      ul#nav-mobile.right.hide-on-med-and-down
+        li(class=(isHome ? 'active' : '')): a(href="/") Home page
+        li(class=(isList ? 'active' : '')): a(href="/habits") Habits list
+        li(class=(isAdd ? 'active' : '')): a(href="/add") Add habit
+        li(class=(idWishlist ? 'active' : '')): a(href="/wishlist") Wishlist
+

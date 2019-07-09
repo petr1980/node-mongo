@@ -1,0 +1,26 @@
+extends template
+block head
+  +head(title)
+
+block header
+  include parts/navbar 
+
+block content
+  h1 Add habit
+  form(action="/add" method="POST")
+    div.input-field
+      input#title.validate(type="text" name="title" required)
+      label(for="title") Name new habit
+      span.helper-text(data-error="error data" data-success="ok") field is required
+
+    div.input-field
+      textarea#desc.materialize-textarea.validate(name="desc" required)
+      label(for="desc") Description about habit
+      span.helper-text(data-error="error data" data-success="ok") field is required
+
+    div.input-field
+      input#img.validate(type="text" name="img" required)
+      label(for="img") Url icon      
+      span.helper-text(data-error="error url" data-success="ok") url is required
+
+    button.btn.btn-primary Add habit

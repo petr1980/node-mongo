@@ -1,0 +1,32 @@
+extends template
+block head
+  +head(title)
+
+block header
+  include parts/navbar 
+
+block content
+  h1 Add habit
+  form(action="/habits/edit" method="POST")
+    div.input-field
+      input#title.validate(type="text" name="title" value= habit.title required)
+      label(for="title") Name new habit
+      span.helper-text(data-error="error data" data-success="ok") field is required
+
+    div.input-field
+      textarea#desc.materialize-textarea.validate(name="desc" required)= habit.desc
+      label(for="desc") Description about habit
+      span.helper-text(data-error="error data" data-success="ok") field is required
+
+    div.input-field
+      input#img.validate(type="text" name="img"  value= habit.img required)
+      label(for="img") Url icon      
+      span.helper-text(data-error="error url" data-success="ok") url is required
+
+    input(type="hidden" name="id" value= habit.id)
+
+    button(type="submit").btn.btn-primary Edit habit
+
+  form.remove-form(action="/habits/remove" method="POST")
+    input(type="hidden" name="id" value= habit.id)
+    button.btn.red(type="submit") Remove habit
